@@ -11,7 +11,9 @@ import org.apache.http.client.methods.HttpPost;
  */
 public class ConnNet {
 
-    private static final String SERVICE_URL="http://192.168.1.104:8080/ICity/";
+//    private static final String SERVICE_URL="http://192.168.1.104:8080/ICity/";
+
+    private static final String SERVICE_URL="http://10.254.242.5:8080/ICity/";
     //将路径定义为一个常量，修改的时候也好更改
     //通过url获取网络连接  connection
     public HttpURLConnection getConn(String urlPath){
