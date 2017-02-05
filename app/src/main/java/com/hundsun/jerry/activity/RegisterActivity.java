@@ -108,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent();
                 i.setClass(RegisterActivity.this,LoginActivity.class);
+                startActivity(i);
             }
         });
         /*********************************************/
@@ -124,7 +125,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                builder.setIcon(R.drawable.ic_launcher);  设置图标
                 builder.setTitle("请选择照片");
                 //    指定下拉列表的显示数据
-                final String[] pic_options = {"摄像头", "图库"};
+                final String[] pic_options = {"图库", "摄像头"};
                 //    设置一个下拉的列表选择项
                 builder.setItems(pic_options, new DialogInterface.OnClickListener() {
                     @Override
@@ -201,7 +202,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             //还有url没写
                     try {
-                        User user=new User(111,username,password,phone,email," ",register_date);
+                        User user=new User(111,username,password,phone,email,"",register_date);
                         //构造一个user对象
                         List<User> list=new ArrayList<User>();
                         list.add(user);
@@ -215,7 +216,7 @@ public class RegisterActivity extends AppCompatActivity {
                         new Thread(new Runnable() {
                             public void run() {
                                 Operation operaton=new Operation();
-                                String result= operaton.upData("Register", jsonString);
+                                String result= operaton.upData("RegisterServlet", jsonString);
                                 Message msg=new Message();
                                 msg.obj=result;
                                 handler.sendMessage(msg);

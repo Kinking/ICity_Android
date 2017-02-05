@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 new Thread(new Runnable() {
                     public void run() {
                         Operation operaton=new Operation();
-                        String result=operaton.login("Login", username, password);
+                        String result=operaton.login("LoginController", username, password);
                         Message msg=new Message();
                         msg.obj=result;
                         handler.sendMessage(msg);
@@ -100,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent();
                 intent.setClass(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
