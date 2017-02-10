@@ -12,14 +12,14 @@ public class User {
     private String img_url;
     private String userRegisterDate;
 
-    public User(Integer id, String userEmail, String userName, String userPwd, String userRegisterDate, String userTel,String img_url) {
+    public User(Integer id, String userName, String userPwd, String userTel, String userEmail,String img_url,String userRegisterDate) {
         this.id = id;
-        this.userEmail = userEmail;
         this.userName = userName;
         this.userPwd = userPwd;
-        this.userRegisterDate = userRegisterDate;
         this.userTel = userTel;
+        this.userEmail = userEmail;
         this.img_url = img_url;
+        this.userRegisterDate = userRegisterDate;
     }
 
     public Integer getId() {
@@ -76,5 +76,9 @@ public class User {
 
     public void setUserTel(String userTel) {
         this.userTel = userTel;
+    }
+
+    public User() {
+        super();
     }
 }

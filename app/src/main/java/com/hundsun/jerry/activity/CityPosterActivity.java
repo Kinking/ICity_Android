@@ -2,8 +2,13 @@ package com.hundsun.jerry.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.hundsun.jerry.R;
 
@@ -11,10 +16,12 @@ import com.hundsun.jerry.R;
  * Created by huangzhiyuan on 2017/1/20.
  */
 public class CityPosterActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_poster);
+
         //线程自动控制，睡眠两秒钟
         Thread thread = new Thread(){
             @Override
@@ -37,4 +44,15 @@ public class CityPosterActivity extends Activity {
         };
         thread.start();
     }
+
+    @Override
+    protected void onStop() {
+        LayoutInflater inflater = getLayoutInflater();
+        final View v = inflater.inflate(R.layout.activity_city_poster, null);
+        super.onStop();
+    }
+
+
+
+
 }

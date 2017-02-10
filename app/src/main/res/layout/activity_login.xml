@@ -110,9 +110,10 @@
             android:id="@+id/tv_forget"
             android:text="Forget password?"
             android:textColor="#FFFFFF"
-            android:layout_width="112dp"
-            android:layout_height="20dp"
-            android:layout_alignParentBottom="true"
+            android:layout_width="120dp"
+            android:layout_height="22dp"
+            android:layout_below="@+id/tv_register"
+
             android:layout_centerHorizontal="true" />
 
     </RelativeLayout>

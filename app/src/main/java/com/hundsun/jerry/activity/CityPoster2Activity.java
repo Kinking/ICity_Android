@@ -1,10 +1,17 @@
 package com.hundsun.jerry.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Layout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.hundsun.jerry.R;
+
 
 public class CityPoster2Activity extends AppCompatActivity {
 
@@ -34,4 +41,25 @@ public class CityPoster2Activity extends AppCompatActivity {
         };
         thread.start();
     }
+
+    @Override
+    protected void onStop() {
+        LayoutInflater inflater = getLayoutInflater();
+        final View v = inflater.inflate(R.layout.activity_city_poster2, null);
+        super.onStop();
+    }
+//
+//    private void releaseImageViews() {
+//        releaseImageView(imageView);
+//    }
+//
+//    private void releaseImageView(ImageView imageView) {
+//        Drawable d = imageView.getDrawable();
+//        if (d != null)
+//            d.setCallback(null);
+//        imageView.setImageDrawable(null);
+//        imageView.setBackgroundDrawable(null);
+//
+//    }
+
 }

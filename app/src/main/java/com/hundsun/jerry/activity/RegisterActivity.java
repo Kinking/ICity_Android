@@ -216,7 +216,7 @@ public class RegisterActivity extends AppCompatActivity {
                         new Thread(new Runnable() {
                             public void run() {
                                 Operation operaton=new Operation();
-                                String result= operaton.upData("RegisterServlet", jsonString);
+                                String result= operaton.upData("RegisterController", jsonString);
                                 Message msg=new Message();
                                 msg.obj=result;
                                 handler.sendMessage(msg);
