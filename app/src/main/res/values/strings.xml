@@ -6,4 +6,20 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+
+    <!-- 个人信息设置用的字符串 -->
+    <string name="user_pic">头像</string>
+    <string name="user_nickname">呢称</string>
+    <string name="user_sex">性别</string>
+    <string name="user_age">年龄</string>
+    <string name="user_truename">真实姓名</string>
+    <string name="user_birthday">生日</string>
+    <string name="user_constellation">星座</string>
+    <string name="user_tel">电话</string>
+    <string name="user_qq">QQ</string>
+    <string name="user_mail">邮箱</string>
+    <string name="user_address">地址</string>
+
+
 </resources>
