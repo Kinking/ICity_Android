@@ -1,6 +1,8 @@
 package com.hundsun.jerry.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,13 +12,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.hundsun.jerry.R;
+import com.hundsun.jerry.activity.perinfosetdetails.UAddSetActivity;
+import com.hundsun.jerry.activity.perinfosetdetails.UMailSetActivity;
+import com.hundsun.jerry.activity.perinfosetdetails.UNameSetActivity;
+import com.hundsun.jerry.activity.perinfosetdetails.UQQSetActivity;
+import com.hundsun.jerry.activity.perinfosetdetails.UTelSetActivity;
+import com.hundsun.jerry.activity.perinfosetdetails.UTruenameSetActivity;
 import com.hundsun.jerry.bean.WidgetBean.PerInfoListItemBean;
 import com.hundsun.jerry.library.PerInfoListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PerInfoSetctivity extends AppCompatActivity {
+public class PerInfoSetActivity extends AppCompatActivity {
 
     ImageView imageView;
     ListView listView;
@@ -36,7 +44,7 @@ public class PerInfoSetctivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(PerInfoSetctivity.this,OperatorActivity.class);
+                intent.setClass(PerInfoSetActivity.this,OperatorActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -70,7 +78,7 @@ public class PerInfoSetctivity extends AppCompatActivity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
                 if(list.get(i).getItemOption().equals("头像")){
 
                     //设置头像的响应事件
@@ -78,42 +86,108 @@ public class PerInfoSetctivity extends AppCompatActivity {
                 }else if(list.get(i).getItemOption().equals("呢称")){
 
                     //设置呢称的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UNameSetActivity.class);
+                    startActivity(intent);
 
                 }else if(list.get(i).getItemOption().equals("性别")){
 
                     //设置性别的响应事件
 
+                    // 自定义对话框
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PerInfoSetActivity.this);
+                    builder.setTitle("请选择性别");
+                    final String[] sexArr = {"男", "女"};
+                    builder.setItems(sexArr, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if(which==0){
+                                //选择男
+                                list.get(i).setItemOption("男");
+
+                            }else {
+                                //选择女
+                                list.get(i).setItemOption("女");
+
+                            }
+                        }
+                    });
+
+
                 }else if(list.get(i).getItemOption().equals("年龄")){
 
                     //设置年龄的响应事件
+                    /**
+                     * 尚未写，要用WheelView
+                     */
 
                 }else if(list.get(i).getItemOption().equals("真实姓名")){
 
                     //设置真实姓名的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UTruenameSetActivity.class);
+                    startActivity(intent);
 
                 }else if(list.get(i).getItemOption().equals("生日")){
 
                     //设置生日的响应事件
+                    /**
+                     * 尚未写，要用WheelView
+                     */
 
                 }else if(list.get(i).getItemOption().equals("星座")){
 
                     //设置星座的响应事件
+                    /**
+                     * 尚未写，要用WheelView
+                     */
 
                 }else if(list.get(i).getItemOption().equals("电话")){
 
                     //设置电话的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UTelSetActivity.class);
+                    startActivity(intent);
+
 
                 }else if(list.get(i).getItemOption().equals("QQ")){
 
                     //设置QQ的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UQQSetActivity.class);
+                    startActivity(intent);
 
                 }else if(list.get(i).getItemOption().equals("邮箱")){
 
                     //设置邮箱的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UMailSetActivity.class);
+                    startActivity(intent);
 
                 }else if(list.get(i).getItemOption().equals("地址")){
 
                     //设置地址的响应事件
+                    /**
+                     * 尚未写逻辑
+                     */
+                    Intent intent=new Intent();
+                    intent.setClass(PerInfoSetActivity.this, UAddSetActivity.class);
+                    startActivity(intent);
 
                 }
 

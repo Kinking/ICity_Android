@@ -38,7 +38,13 @@
             android:label="@string/title_activity_operator"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.CityPoster2Activity" />
-        <activity android:name=".activity.PerInfoSetctivity"></activity>
+        <activity android:name=".activity.PerInfoSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UNameSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UTelSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UTruenameSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UQQSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UMailSetActivity" />
+        <activity android:name=".activity.perinfosetdetails.UAddSetActivity"></activity>
     </application>
 
 </manifest>
