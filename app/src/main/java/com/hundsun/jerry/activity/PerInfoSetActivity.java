@@ -20,6 +20,8 @@ import com.hundsun.jerry.activity.perinfosetdetails.UTelSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UTruenameSetActivity;
 import com.hundsun.jerry.bean.WidgetBean.PerInfoListItemBean;
 import com.hundsun.jerry.library.PerInfoListAdapter;
+import com.hundsun.jerry.library.wheel.widget.AddressPickerDialog;
+import com.hundsun.jerry.library.wheel.widget.DatePickerDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,9 +139,16 @@ public class PerInfoSetActivity extends AppCompatActivity {
                 }else if(list.get(i).getItemOption().equals("生日")){
 
                     //设置生日的响应事件
-                    /**
-                     * 尚未写，要用WheelView
-                     */
+
+                    DatePickerDialog mChangeBirthDialog = new DatePickerDialog(PerInfoSetActivity.this);
+                    mChangeBirthDialog.setDate(1991, 01, 01);
+                    mChangeBirthDialog.setDatePickListener(new DatePickerDialog.OnDatePickListener() {
+                        @Override
+                        public void onClick(String year, String month, String day) {
+                            list.get(i).setItemOption(year + "-" + month + "-" + day);
+                        }
+                    });
+
 
                 }else if(list.get(i).getItemOption().equals("星座")){
 
@@ -182,13 +191,14 @@ public class PerInfoSetActivity extends AppCompatActivity {
                 }else if(list.get(i).getItemOption().equals("地址")){
 
                     //设置地址的响应事件
-                    /**
-                     * 尚未写逻辑
-                     */
-                    Intent intent=new Intent();
-                    intent.setClass(PerInfoSetActivity.this, UAddSetActivity.class);
-                    startActivity(intent);
-
+                    AddressPickerDialog mChangeAddressDialog = new AddressPickerDialog(PerInfoSetActivity.this);
+                    mChangeAddressDialog.setAddress("四川", "自贡");
+                    mChangeAddressDialog.setAddresskListener(new AddressPickerDialog.OnAddressCListener() {
+                        @Override
+                        public void onClick(String province, String city) {
+                            list.get(i).setItemOption(province + "-" + city);
+                        }
+                    });
                 }
 
 
