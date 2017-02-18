@@ -44,7 +44,6 @@
         <activity android:name=".activity.perinfosetdetails.UTruenameSetActivity" />
         <activity android:name=".activity.perinfosetdetails.UQQSetActivity" />
         <activity android:name=".activity.perinfosetdetails.UMailSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UAddSetActivity"></activity>
     </application>
 
 </manifest>

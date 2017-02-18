@@ -13,9 +13,9 @@ import com.hundsun.jerry.activity.PerInfoSetActivity;
 
 public class UTelSetActivity extends AppCompatActivity {
 
-    ImageView imageView=null;
-    TextView textView=null;
-    EditText editText=null;
+    ImageView imageView=null; //返回
+    TextView textView=null;   //Done
+    EditText editText=null;   //填写内容
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,7 @@ public class UTelSetActivity extends AppCompatActivity {
         textView= (TextView) findViewById(R.id.set_tel_done);
         editText= (EditText) findViewById(R.id.et_set_utel);
 
+        /******返回功能******/
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,17 +44,14 @@ public class UTelSetActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String tel = editText.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("tel",tel);
+                intent.setClass(UTelSetActivity.this,PerInfoSetActivity.class);
+                startActivity(intent);
 
             }
         });
 
-
-        //填入修改的电话
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 }

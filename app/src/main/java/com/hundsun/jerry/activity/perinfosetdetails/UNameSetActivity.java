@@ -15,9 +15,9 @@ import org.w3c.dom.Text;
 
 public class UNameSetActivity extends AppCompatActivity {
 
-    ImageView imageView=null;
-    TextView textView=null;
-    EditText editText=null;
+    ImageView imageView=null; //返回
+    TextView textView=null;   //Done
+    EditText editText=null;   //填写内容
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class UNameSetActivity extends AppCompatActivity {
         textView= (TextView) findViewById(R.id.set_name_done);
         editText= (EditText) findViewById(R.id.et_set_uname);
 
+        /******返回功能******/
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,26 +39,20 @@ public class UNameSetActivity extends AppCompatActivity {
         });
 
         /**
-         * 名字修改传值功能尚未设置
+         * 名字修改传值功能
          */
 
         //名字修改确定
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String userName = editText.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("userName",userName);
+                intent.setClass(UNameSetActivity.this,PerInfoSetActivity.class);
+                startActivity(intent);
             }
         });
-
-
-        //填入修改的名字
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
 
     }
 }

@@ -3,6 +3,7 @@ package com.hundsun.jerry.activity.perinfosetdetails;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,9 +14,9 @@ import com.hundsun.jerry.activity.PerInfoSetActivity;
 
 public class UTruenameSetActivity extends AppCompatActivity {
 
-    ImageView imageView=null;
-    TextView textView=null;
-    EditText editText=null;
+    ImageView imageView=null;  //返回
+    TextView textView=null;    //完成
+    EditText editText=null;    //填入名称
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class UTruenameSetActivity extends AppCompatActivity {
         textView= (TextView) findViewById(R.id.set_truename_done);
         editText= (EditText) findViewById(R.id.et_set_truename);
 
+        /******返回功能******/
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,17 +45,13 @@ public class UTruenameSetActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String userTrueName = editText.getText().toString();
+                Intent intent = new Intent();
+                intent.putExtra("userTrueName",userTrueName);
+                intent.setClass(UTruenameSetActivity.this,PerInfoSetActivity.class);
+                startActivity(intent);
             }
         });
 
-
-        //填入修改的真实姓名
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 }
