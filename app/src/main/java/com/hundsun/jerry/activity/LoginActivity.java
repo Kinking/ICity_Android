@@ -111,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         /**提交editor数据**/
                         editor.commit();
-
                         Intent intent = new Intent();
                         intent.setClass(LoginActivity.this, OperatorActivity.class);
                         startActivity(intent);

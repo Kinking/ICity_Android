@@ -7,25 +7,27 @@ public class UserInfo {
     private Integer userId;
     private String userTrueName;
     private String userNickname;
-    private String Sex;
-    private String Birthday;
-    private Integer Age;
-    private String QQNumber;
-    private String Introduction;
-    private String Declaration;
-    private String Profession;
+    private String sex;
+    private String birthday;
+    private Integer age;
+    private String qqNumber;
+    private String introduction;
+    private String declaration;
+    private String profession;
+    private String userName;
 
-    public UserInfo(Integer userId, String userTrueName, String userNickname, String sex, String birthday, Integer age, String QQNumber, String introduction, String declaration, String profession) {
+    public UserInfo(Integer userId, String userTrueName, String userNickname, String sex, String birthday, Integer age, String QQNumber, String introduction, String declaration, String profession,String userName) {
         this.userId = userId;
         this.userTrueName = userTrueName;
         this.userNickname = userNickname;
-        Sex = sex;
-        Birthday = birthday;
-        Age = age;
-        this.QQNumber = QQNumber;
-        Introduction = introduction;
-        Declaration = declaration;
-        Profession = profession;
+        this.sex = sex;
+        this.birthday = birthday;
+        this.age = age;
+        this.qqNumber = QQNumber;
+        this.introduction = introduction;
+        this.declaration = declaration;
+        this.profession = profession;
+        this.userName = userName;
     }
 
     public Integer getUserId() {
@@ -53,58 +55,66 @@ public class UserInfo {
     }
 
     public String getSex() {
-        return Sex;
+        return sex;
     }
 
     public void setSex(String sex) {
-        Sex = sex;
+        this.sex = sex;
     }
 
     public String getBirthday() {
-        return Birthday;
+        return birthday;
     }
 
     public void setBirthday(String birthday) {
-        Birthday = birthday;
+        this.birthday = birthday;
     }
 
     public Integer getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(Integer age) {
-        Age = age;
+        this.age = age;
     }
 
-    public String getQQNumber() {
-        return QQNumber;
+    public String getQqNumber() {
+        return qqNumber;
     }
 
-    public void setQQNumber(String QQNumber) {
-        this.QQNumber = QQNumber;
+    public void setQqNumber(String qqNumber) {
+        this.qqNumber = qqNumber;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getIntroduction() {
-        return Introduction;
+        return introduction;
     }
 
     public void setIntroduction(String introduction) {
-        Introduction = introduction;
+        this.introduction = introduction;
     }
 
     public String getDeclaration() {
-        return Declaration;
+        return declaration;
     }
 
     public void setDeclaration(String declaration) {
-        Declaration = declaration;
+        this.declaration = declaration;
     }
 
     public String getProfession() {
-        return Profession;
+        return profession;
     }
 
     public void setProfession(String profession) {
-        Profession = profession;
+        this.profession = profession;
     }
 }
