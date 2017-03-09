@@ -1,9 +1,16 @@
 package com.hundsun.jerry.bean;
 
+import io.realm.RealmObject;
+
 /**
  * Created by huangzhiyuan on 2017/2/9.
  */
-public class UserInfo {
+public class UserInfo extends RealmObject{
+
+    public UserInfo() {
+    }
+
+
     private Integer userId;
     private String userTrueName;
     private String userNickname;

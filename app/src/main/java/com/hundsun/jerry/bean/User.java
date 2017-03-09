@@ -1,5 +1,7 @@
 package com.hundsun.jerry.bean;
 
+
+
 /**
  * Created by huangzhiyuan on 2017/1/20.
  */
