@@ -54,14 +54,14 @@ public class UserInfoDaoImpl implements UserInfoDao {
 
     /**
      * 更新一个User
-     * @param user 需要更新的用户信息类
+     * @param userInfo 需要更新的用户信息类
      * @return 返回更新后的UserInfo
      * @throws SQLException
      */
     @Override
-    public UserInfo updateUserInfo(UserInfo user) throws SQLException {
+    public UserInfo updateUserInfo(UserInfo userInfo) throws SQLException {
         mRealm.beginTransaction();//开启事务
-        UserInfo user1 = mRealm.copyToRealmOrUpdate(user);
+        UserInfo user1 = mRealm.copyToRealmOrUpdate(userInfo);
         mRealm.commitTransaction();//提交事务
 //        mRealm.close();//必须关闭事务
         return user1;

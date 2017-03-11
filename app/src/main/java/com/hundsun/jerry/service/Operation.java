@@ -1,6 +1,14 @@
 package com.hundsun.jerry.service;
 
+import android.support.v7.widget.LinearLayoutCompat;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
+
+import com.hundsun.jerry.bean.UserInfo;
+import com.hundsun.jerry.dao.UserInfoDao;
 import com.hundsun.jerry.util.network.ConnNet;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -15,11 +23,19 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
+
+import static android.widget.Toast.LENGTH_SHORT;
 
 /**
  * Created by huangzhiyuan on 2017/1/21.
@@ -43,6 +59,7 @@ public class Operation {
             if (httpResponse.getStatusLine().getStatusCode()== HttpStatus.SC_OK)
             {
                 result= EntityUtils.toString(httpResponse.getEntity(), "utf-8");
+                getJsonFromServer(url,username);
             }
             else
             {
@@ -132,6 +149,57 @@ public class Operation {
             e.printStackTrace();
         }
         return result;
+    }
+
+    /***获取服务器的json数据***/
+    public void getJsonFromServer(String url, final String userName){
+
+        final UserInfo userInfo=null;
+
+        final UserInfoDao userInfoDao = null;
+        //访问服务器端 获取json数据
+        //创建客户对象
+        AsyncHttpClient client = new AsyncHttpClient();
+//        Toast.makeText(this,"发送请求到服务器", LENGTH_SHORT).show();
+
+        client.get(url,new JsonHttpResponseHandler(){
+            //返回JSONArray对象 | JSONObject对象
+            @Override
+            public void onSuccess(int statusCode, Header[] headers,
+                                  JSONArray response) {
+                super.onSuccess(statusCode, headers, response);
+                if(statusCode==200){
+                    //存储数据变量
+//                    List<String> objects = new ArrayList<String>();
+                    for (int i = 0;i<response.length();i++){
+                        try {
+                            //获取具体的一个JSONObject对象
+                            JSONObject obj = response.getJSONObject(i);
+                            if(userName.equals(obj.getString("userName"))){
+                                userInfo.setUserTrueName(obj.getString("userTrueName"));
+                                userInfo.setUserNickname(obj.getString("userNickname"));
+                                userInfo.setSex(obj.getString("sex"));
+                                userInfo.setBirthday(obj.getString("birthday"));
+                                userInfo.setAge(Integer.parseInt(obj.getString("age")));
+                                userInfo.setQqNumber(obj.getString("qqNumber"));
+                                userInfo.setIntroduction(obj.getString("introduction"));
+                                userInfo.setDeclaration(obj.getString("declaration"));
+                                userInfo.setProfession(obj.getString("profession"));
+                                userInfo.setUserName(obj.getString("userName"));
+                                userInfoDao.insert(userInfo);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    //控制层主要就是对数据处理
+                }
+            }
+        });
+
     }
 
 

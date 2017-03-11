@@ -111,7 +111,11 @@ public class LoginActivity extends AppCompatActivity {
 
                         /**提交editor数据**/
                         editor.commit();
+                        /***跳转到主界面，同时将userName以广播的形式传给PerInfoSetActivity，周六完成***/
                         Intent intent = new Intent();
+                        intent.putExtra("userName",username);
+                        sendBroadcast(intent);
+
                         intent.setClass(LoginActivity.this, OperatorActivity.class);
                         startActivity(intent);
                         finish();
