@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
@@ -127,12 +128,24 @@ public class UserInfoDaoImpl implements UserInfoDao {
     @Override
     public UserInfo findByNameOrAge(String name1,int age1) throws SQLException{
         UserInfo userInfo = mRealm.where(UserInfo.class)
-                .equalTo("name",name1)//相当于where name = name1
+                .equalTo("userName",name1)//相当于where name = name1
                 .or()//或，连接查询条件，没有这个方式时会默认是&连接
                 .equalTo("age",age1)//相当于where age = age1
                 .findFirst();
         //整体相当于select * from (表名) where name = (传入的name) or age = （传入的age）limit 1;
 //        mRealm.close();
+        return userInfo;
+    }
+
+    /**
+     * 返回第一个指定用户名的对象
+     * @param userName 名字
+     */
+    @Override
+    public UserInfo findByUsername(String userName) throws SQLException {
+        UserInfo userInfo = mRealm.where(UserInfo.class)
+                .equalTo("userName",userName)
+                .findFirst();
         return userInfo;
     }
 

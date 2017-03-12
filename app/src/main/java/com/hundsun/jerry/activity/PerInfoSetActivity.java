@@ -22,21 +22,28 @@ import com.hundsun.jerry.activity.perinfosetdetails.UNameSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UQQSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UTelSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UTruenameSetActivity;
+import com.hundsun.jerry.bean.UserInfo;
 import com.hundsun.jerry.bean.WidgetBean.PerInfoListItemBean;
+import com.hundsun.jerry.dao.UserInfoDao;
 import com.hundsun.jerry.library.PerInfoListAdapter;
 import com.hundsun.jerry.library.wheel.widget.AddressPickerDialog;
 import com.hundsun.jerry.library.wheel.widget.DatePickerDialog;
 import com.hundsun.jerry.util.broadcast.MyBroadcastReceiver;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmQuery;
 
 
 public class PerInfoSetActivity extends AppCompatActivity {
 
     ImageView imageView;
     ListView listView;
+    UserInfoDao userInfoDao;
 
 
     private static final String BROADCAST_GET_USERNAME = "org.jerry.broadcast.action.GET_USERNAME";
@@ -61,8 +68,42 @@ public class PerInfoSetActivity extends AppCompatActivity {
         /***用Sharedpreferenced获取注册的用户名***/
         SharedPreferences sharedPreferences = this.getSharedPreferences("logindata", Context.MODE_WORLD_READABLE+Context.MODE_WORLD_WRITEABLE);
         String userName=sharedPreferences.getString("account","");
-        /*****接下来要跟觉userName来获取Realm中的数据，周日写****/
 
+        /*********************************设置ListView选项*******************************************/
+        //1.构建数据,创建实体类，把实体类放到集合
+        final List<PerInfoListItemBean> list = new ArrayList<PerInfoListItemBean>();
+//        list.add(new PerInfoListItemBean("头像",""));
+//        list.add(new PerInfoListItemBean("呢称",""));
+//        list.add(new PerInfoListItemBean("性别",""));
+//        list.add(new PerInfoListItemBean("年龄",""));
+//        list.add(new PerInfoListItemBean("真实姓名",""));
+//        list.add(new PerInfoListItemBean("生日",""));
+//        list.add(new PerInfoListItemBean("星座",""));
+//        list.add(new PerInfoListItemBean("电话",""));
+//        list.add(new PerInfoListItemBean("QQ",""));
+//        list.add(new PerInfoListItemBean("邮箱",""));
+//        list.add(new PerInfoListItemBean("地址",""));
+
+
+        /*****接下来要根据userName来获取Realm中的数据，周日写****/
+        try {
+            UserInfo userInfo = userInfoDao.findByUsername(userName);
+            list.add(new PerInfoListItemBean("头像",""));
+            list.add(new PerInfoListItemBean("呢称",userInfo.getUserNickname()));
+            list.add(new PerInfoListItemBean("性别",userInfo.getSex()));
+            list.add(new PerInfoListItemBean("年龄",userInfo.getAge().toString()));
+            list.add(new PerInfoListItemBean("真实姓名",userInfo.getUserTrueName()));
+            list.add(new PerInfoListItemBean("生日",userInfo.getBirthday()));
+            list.add(new PerInfoListItemBean("星座",userInfo.getConstellation()));
+            list.add(new PerInfoListItemBean("电话",userInfo.getTel()));
+            list.add(new PerInfoListItemBean("QQ",userInfo.getQqNumber()));
+            list.add(new PerInfoListItemBean("邮箱",userInfo.getEmail()));
+            list.add(new PerInfoListItemBean("地址",userInfo.getAddress()));
+
+        } catch (SQLException e) {
+            System.out.println("未找到此用户名对应的信息");
+            e.printStackTrace();
+        }
 
 
         /*********************************设置返回事件*******************************************/
@@ -79,23 +120,6 @@ public class PerInfoSetActivity extends AppCompatActivity {
         /**************************************************************************************/
 
 
-
-
-
-        /*********************************设置ListView选项*******************************************/
-        //1.构建数据,创建实体类，把实体类放到集合
-        final List<PerInfoListItemBean> list = new ArrayList<PerInfoListItemBean>();
-        list.add(new PerInfoListItemBean("头像",""));
-        list.add(new PerInfoListItemBean("呢称",""));
-        list.add(new PerInfoListItemBean("性别",""));
-        list.add(new PerInfoListItemBean("年龄",""));
-        list.add(new PerInfoListItemBean("真实姓名",""));
-        list.add(new PerInfoListItemBean("生日",""));
-        list.add(new PerInfoListItemBean("星座",""));
-        list.add(new PerInfoListItemBean("电话",""));
-        list.add(new PerInfoListItemBean("QQ",""));
-        list.add(new PerInfoListItemBean("邮箱",""));
-        list.add(new PerInfoListItemBean("地址",""));
 
         //2.创建适配器
         PerInfoListAdapter perInfoListAdapter = new PerInfoListAdapter(this,list);

@@ -5,6 +5,8 @@ import com.hundsun.jerry.bean.UserInfo;
 import java.sql.SQLException;
 import java.util.List;
 
+import io.realm.RealmQuery;
+
 /**
  * Created by huangzhiyuan on 2017/3/9.
  */
@@ -56,7 +58,12 @@ public interface UserInfoDao {
     /**
      * 按名字或者年龄查找第一个User
      */
-    UserInfo findByNameOrAge(String name1,int age1) throws SQLException;
+    UserInfo findByNameOrAge(String name1,int a) throws SQLException;
+
+    /**
+     * 按名字查找第一个User
+     */
+    UserInfo findByUsername(String name) throws SQLException;
 
     /**
      * 清楚所有
