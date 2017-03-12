@@ -1,5 +1,7 @@
 package com.hundsun.jerry.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
@@ -31,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     String password;
     TextView tv_register;
 
+    private static final String BROADCAST_GET_USERNAME = "org.jerry.broadcast.action.GET_USERNAME";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+
+
         //制定SharedPreference的文件名为data
-        pref=getSharedPreferences("data",MODE_PRIVATE);
+        pref=this.getSharedPreferences("logindata", Context.MODE_WORLD_READABLE+Context.MODE_WORLD_WRITEABLE);
         editor=pref.edit();
 
         et_username=(EditText) findViewById(R.id.et_username);
@@ -111,11 +117,8 @@ public class LoginActivity extends AppCompatActivity {
 
                         /**提交editor数据**/
                         editor.commit();
-                        /***跳转到主界面，同时将userName以广播的形式传给PerInfoSetActivity，周六完成***/
-                        Intent intent = new Intent();
-                        intent.putExtra("userName",username);
-                        sendBroadcast(intent);
 
+                        Intent intent = new Intent();
                         intent.setClass(LoginActivity.this, OperatorActivity.class);
                         startActivity(intent);
                         finish();

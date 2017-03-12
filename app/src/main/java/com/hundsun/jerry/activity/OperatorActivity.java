@@ -1,6 +1,7 @@
 package com.hundsun.jerry.activity;
 
 import android.content.Intent;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,9 +16,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.hundsun.jerry.R;
+import com.hundsun.jerry.library.CircleImageView;
 
 public class OperatorActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    CircleImageView circleImageView=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +31,18 @@ public class OperatorActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //登录成功后，通过SharedPreferenced传送username到后台判断是否为空，后台相关Controller还未写
+        /***点击头像即开始设置个人信息***/
+        circleImageView = (CircleImageView) findViewById(R.id.head_imageView);
+        circleImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setClass(OperatorActivity.this,PerInfoSetActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 
     @Override

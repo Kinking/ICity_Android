@@ -1,7 +1,11 @@
 package com.hundsun.jerry.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +26,7 @@ import com.hundsun.jerry.bean.WidgetBean.PerInfoListItemBean;
 import com.hundsun.jerry.library.PerInfoListAdapter;
 import com.hundsun.jerry.library.wheel.widget.AddressPickerDialog;
 import com.hundsun.jerry.library.wheel.widget.DatePickerDialog;
+import com.hundsun.jerry.util.broadcast.MyBroadcastReceiver;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,6 +38,11 @@ public class PerInfoSetActivity extends AppCompatActivity {
     ImageView imageView;
     ListView listView;
 
+
+    private static final String BROADCAST_GET_USERNAME = "org.jerry.broadcast.action.GET_USERNAME";
+
+
+    private BroadcastReceiver mBroadcastReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +51,21 @@ public class PerInfoSetActivity extends AppCompatActivity {
         imageView= (ImageView) findViewById(R.id.logo_back);
         listView= (ListView) findViewById(R.id.item_list);
 
-        /*********************************设置返回事件*******************************************/
+        /***接受广播内容***/
+//        mBroadcastReceiver = new MyBroadcastReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(BROADCAST_GET_USERNAME);
+//        registerReceiver(mBroadcastReceiver,intentFilter);
+        /****************/
 
+        /***用Sharedpreferenced获取注册的用户名***/
+        SharedPreferences sharedPreferences = this.getSharedPreferences("logindata", Context.MODE_WORLD_READABLE+Context.MODE_WORLD_WRITEABLE);
+        String userName=sharedPreferences.getString("account","");
+        /*****接下来要跟觉userName来获取Realm中的数据，周日写****/
+
+
+
+        /*********************************设置返回事件*******************************************/
         //设置返回事件
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
