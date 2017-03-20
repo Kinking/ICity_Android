@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.DialogPreference;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,13 +17,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.hundsun.jerry.R;
 import com.hundsun.jerry.bean.User;
 import com.hundsun.jerry.library.CircleImageView;
-import com.hundsun.jerry.service.Operation;
+import com.hundsun.jerry.service.UserOperation;
 import com.hundsun.jerry.util.json.WriteJson;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -215,7 +213,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         new Thread(new Runnable() {
                             public void run() {
-                                Operation operaton=new Operation();
+                                UserOperation operaton=new UserOperation();
                                 String result= operaton.upData("RegisterController", jsonString);
                                 Message msg=new Message();
                                 msg.obj=result;
@@ -245,8 +243,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     /******************* Handler **************************/
-    Handler handler=new Handler()
-    {
+    Handler handler=new Handler() {
         @Override
         public void handleMessage(Message msg) {
 //            dialog.dismiss();
@@ -258,7 +255,7 @@ public class RegisterActivity extends AppCompatActivity {
                 {
                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_LONG).show();
                     Intent intent=new Intent();
-                    intent.setClass(RegisterActivity.this, Operation.class);
+                    intent.setClass(RegisterActivity.this, UserOperation.class);
                     startActivity(intent);
                     finish();
                 }
@@ -392,7 +389,7 @@ public class RegisterActivity extends AppCompatActivity {
             //点击保存
             Bundle extras = data.getExtras();
             Bitmap bm = extras.getParcelable("data");
-            ImageView imageView = (ImageView)findViewById(R.id.imageView);
+            ImageView imageView = (ImageView)findViewById(R.id.head_pic);
             imageView.setImageBitmap(bm);
             sendImage(bm);
         }

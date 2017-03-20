@@ -1,12 +1,10 @@
 package com.hundsun.jerry.activity;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hundsun.jerry.R;
-import com.hundsun.jerry.service.Operation;
+import com.hundsun.jerry.service.UserOperation;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -96,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 new Thread(new Runnable() {
                     public void run() {
-                        Operation operaton=new Operation();
+                        UserOperation operaton=new UserOperation();
                         String result=operaton.login("LoginController", username, password);
                         Message msg=new Message();
                         msg.obj=result;

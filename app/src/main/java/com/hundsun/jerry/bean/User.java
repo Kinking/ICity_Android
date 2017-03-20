@@ -1,11 +1,12 @@
 package com.hundsun.jerry.bean;
 
 
+import java.io.Serializable;
 
 /**
  * Created by huangzhiyuan on 2017/1/20.
  */
-public class User {
+public class User implements Serializable{
     private Integer id;
     private String userName;
     private String userPwd;

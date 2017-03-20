@@ -2,6 +2,7 @@ package com.hundsun.jerry.util.json;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.hundsun.jerry.bean.Moment;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -20,5 +21,13 @@ public class JsonUtil {
         Gson gson=new Gson();
         ArrayList<?> list=gson.fromJson(jsonData,listType);
         return list;
+    }
+
+    public List<Moment> momentStringFromJson (String jsonStr)
+    {
+        Gson gson=new Gson();
+        List<Moment> list=gson.fromJson(jsonStr, new TypeToken<List<Moment>>(){}.getType());
+        return list;
+
     }
 }

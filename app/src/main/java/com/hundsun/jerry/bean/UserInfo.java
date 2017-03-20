@@ -1,11 +1,13 @@
 package com.hundsun.jerry.bean;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 
 /**
  * Created by huangzhiyuan on 2017/2/9.
  */
-public class UserInfo extends RealmObject{
+public class UserInfo extends RealmObject implements Serializable{
 
     public UserInfo() {
     }
