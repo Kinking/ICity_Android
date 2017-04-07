@@ -1,5 +1,6 @@
 package com.hundsun.jerry.activity;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -39,7 +40,7 @@ import io.realm.Realm;
 import io.realm.RealmQuery;
 
 
-public class PerInfoSetActivity extends AppCompatActivity {
+public class PerInfoSetActivity extends Activity {
 
     ImageView imageView;
     ListView listView;
@@ -272,9 +273,6 @@ public class PerInfoSetActivity extends AppCompatActivity {
                         }
                     });
                 }
-
-
-
             }
         });
         /**************************************************************************************/

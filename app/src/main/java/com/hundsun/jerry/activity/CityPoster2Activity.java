@@ -1,5 +1,6 @@
 package com.hundsun.jerry.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import android.widget.LinearLayout;
 import com.hundsun.jerry.R;
 
 
-public class CityPoster2Activity extends AppCompatActivity {
+public class CityPoster2Activity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +49,5 @@ public class CityPoster2Activity extends AppCompatActivity {
         final View v = inflater.inflate(R.layout.activity_city_poster2, null);
         super.onStop();
     }
-//
-//    private void releaseImageViews() {
-//        releaseImageView(imageView);
-//    }
-//
-//    private void releaseImageView(ImageView imageView) {
-//        Drawable d = imageView.getDrawable();
-//        if (d != null)
-//            d.setCallback(null);
-//        imageView.setImageDrawable(null);
-//        imageView.setBackgroundDrawable(null);
-//
-//    }
 
 }

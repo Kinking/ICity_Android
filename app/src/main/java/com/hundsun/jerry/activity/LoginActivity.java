@@ -1,5 +1,6 @@
 package com.hundsun.jerry.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 import com.hundsun.jerry.R;
 import com.hundsun.jerry.service.UserOperation;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
     //使用SharedPreferences进行读取
     private SharedPreferences pref;

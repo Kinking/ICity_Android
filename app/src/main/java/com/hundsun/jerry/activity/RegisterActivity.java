@@ -1,9 +1,13 @@
 package com.hundsun.jerry.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -45,7 +49,7 @@ import java.util.List;
  * url相关操作在函数sendImg中
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends Activity {
 
     ImageView iv_back; //返回
 
@@ -235,12 +239,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
         /*********************************************/
     }
-
-
-
     /***********************************  onCreate外的方法  *********************************************/
-
-
 
     /******************* Handler **************************/
     Handler handler=new Handler() {
@@ -423,6 +422,5 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
-    /************************************************************/
 }
 

@@ -15,7 +15,7 @@ import com.hundsun.jerry.R;
 /**
  * Created by huangzhiyuan on 2017/1/20.
  */
-public class CityPosterActivity extends Activity {
+public class CityPosterActivity extends Activity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,5 @@ public class CityPosterActivity extends Activity {
         final View v = inflater.inflate(R.layout.activity_city_poster, null);
         super.onStop();
     }
-
-
-
 
 }
