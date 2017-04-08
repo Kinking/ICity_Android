@@ -87,24 +87,27 @@ public class PerInfoSetActivity extends Activity {
 
 
         /*****接下来要根据userName来获取Realm中的数据，周日写****/
-        try {
-            UserInfo userInfo = userInfoDao.findByUsername(userName);
-            list.add(new PerInfoListItemBean("头像",""));
-            list.add(new PerInfoListItemBean("呢称",userInfo.getUserNickname()));
-            list.add(new PerInfoListItemBean("性别",userInfo.getSex()));
-            list.add(new PerInfoListItemBean("年龄",userInfo.getAge().toString()));
-            list.add(new PerInfoListItemBean("真实姓名",userInfo.getUserTrueName()));
-            list.add(new PerInfoListItemBean("生日",userInfo.getBirthday()));
-            list.add(new PerInfoListItemBean("星座",userInfo.getConstellation()));
-            list.add(new PerInfoListItemBean("电话",userInfo.getTel()));
-            list.add(new PerInfoListItemBean("QQ",userInfo.getQqNumber()));
-            list.add(new PerInfoListItemBean("邮箱",userInfo.getEmail()));
-            list.add(new PerInfoListItemBean("地址",userInfo.getAddress()));
-
-        } catch (SQLException e) {
-            System.out.println("未找到此用户名对应的信息");
-            e.printStackTrace();
-        }
+        /**
+         * 暂时先忽略realm的逻辑
+         */
+//        try {
+//            UserInfo userInfo = userInfoDao.findByUsername(userName);
+//            list.add(new PerInfoListItemBean("头像",""));
+//            list.add(new PerInfoListItemBean("呢称",userInfo.getUserNickname()));
+//            list.add(new PerInfoListItemBean("性别",userInfo.getSex()));
+//            list.add(new PerInfoListItemBean("年龄",userInfo.getAge().toString()));
+//            list.add(new PerInfoListItemBean("真实姓名",userInfo.getUserTrueName()));
+//            list.add(new PerInfoListItemBean("生日",userInfo.getBirthday()));
+//            list.add(new PerInfoListItemBean("星座",userInfo.getConstellation()));
+//            list.add(new PerInfoListItemBean("电话",userInfo.getTel()));
+//            list.add(new PerInfoListItemBean("QQ",userInfo.getQqNumber()));
+//            list.add(new PerInfoListItemBean("邮箱",userInfo.getEmail()));
+//            list.add(new PerInfoListItemBean("地址",userInfo.getAddress()));
+//
+//        } catch (SQLException e) {
+//            System.out.println("未找到此用户名对应的信息");
+//            e.printStackTrace();
+//        }
 
 
         /*********************************设置返回事件*******************************************/

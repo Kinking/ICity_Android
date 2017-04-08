@@ -20,18 +20,23 @@ import com.hundsun.jerry.library.CircleImageView;
 public class OperatorActivity extends Activity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private  NavigationView navigationView = null;
     CircleImageView circleImageView=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_operator);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        //绑定侧滑界面头控件布局
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        View headerView = navigationView.getHeaderView(0);
+
 
         /***点击头像即开始设置个人信息***/
-        circleImageView = (CircleImageView) findViewById(R.id.head_imageView);
+        circleImageView = (CircleImageView) headerView.findViewById(R.id.head_imageView);
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

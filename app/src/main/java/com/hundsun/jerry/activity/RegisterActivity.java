@@ -114,15 +114,14 @@ public class RegisterActivity extends Activity {
             }
         });
         /*********************************************/
-
-
-
-
+        /**
+         * 点击头像暂时注释方便调试
+         */
         /***********  点击头像设置图片的事件  ****************/
         iv_pic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(RegisterActivity.this, "查看点击事件是否能成功运行", Toast.LENGTH_LONG).show();
             }
         });
         /*********************************************/
@@ -245,6 +244,6 @@ public class RegisterActivity extends Activity {
             }
         }
     };
-   
+
 }
 
