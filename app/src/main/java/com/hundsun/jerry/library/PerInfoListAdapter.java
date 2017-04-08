@@ -31,8 +31,8 @@ public class PerInfoListAdapter extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
-        return mList.get(position);
+    public PerInfoListItemBean getItem(int position) {
+        return (PerInfoListItemBean) mList.get(position);
     }
 
     @Override
@@ -44,14 +44,17 @@ public class PerInfoListAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         //LayoutInflater 视图构造器
         //每一个元素的视图
-        widget w =null;
-        if(convertView==null){
-            convertView= LayoutInflater.from(mContext).inflate(R.layout.perinfo_list_item,null);
-
-            //获取控件
+        widget w = null;
+        if (w == null){
             w = new widget();
+            if(convertView==null) {
+                convertView = LayoutInflater.from(mContext).inflate(
+                        R.layout.perinfo_list_item,
+                        null);
+            }
             w.tv_option= (TextView) convertView.findViewById(R.id.item_option);
             w.tv_option= (TextView) convertView.findViewById(R.id.item_setting);
+            convertView.setTag(w);
         }else {
             w = (widget) convertView.getTag();
         }

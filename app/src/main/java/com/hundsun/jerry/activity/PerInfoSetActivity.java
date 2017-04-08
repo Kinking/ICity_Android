@@ -5,15 +5,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -23,21 +20,15 @@ import com.hundsun.jerry.activity.perinfosetdetails.UNameSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UQQSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UTelSetActivity;
 import com.hundsun.jerry.activity.perinfosetdetails.UTruenameSetActivity;
-import com.hundsun.jerry.bean.UserInfo;
 import com.hundsun.jerry.bean.WidgetBean.PerInfoListItemBean;
 import com.hundsun.jerry.dao.UserInfoDao;
 import com.hundsun.jerry.library.PerInfoListAdapter;
 import com.hundsun.jerry.library.wheel.widget.AddressPickerDialog;
 import com.hundsun.jerry.library.wheel.widget.DatePickerDialog;
-import com.hundsun.jerry.util.broadcast.MyBroadcastReceiver;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmQuery;
 
 
 public class PerInfoSetActivity extends Activity {
@@ -57,8 +48,6 @@ public class PerInfoSetActivity extends Activity {
         setContentView(R.layout.activity_per_info_setctivity);
 
         imageView= (ImageView) findViewById(R.id.logo_back);
-        listView= (ListView) findViewById(R.id.item_list);
-
         /***接受广播内容***/
 //        mBroadcastReceiver = new MyBroadcastReceiver();
 //        IntentFilter intentFilter = new IntentFilter();
@@ -70,20 +59,34 @@ public class PerInfoSetActivity extends Activity {
         SharedPreferences sharedPreferences = this.getSharedPreferences("logindata", Context.MODE_WORLD_READABLE+Context.MODE_WORLD_WRITEABLE);
         String userName=sharedPreferences.getString("account","");
 
+        /*********************************设置返回事件*******************************************/
+        //设置返回事件
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(PerInfoSetActivity.this,OperatorActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        /**************************************************************************************/
+
         /*********************************设置ListView选项*******************************************/
         //1.构建数据,创建实体类，把实体类放到集合
+        listView= (ListView) findViewById(R.id.item_list);
         final List<PerInfoListItemBean> list = new ArrayList<PerInfoListItemBean>();
-//        list.add(new PerInfoListItemBean("头像",""));
-//        list.add(new PerInfoListItemBean("呢称",""));
-//        list.add(new PerInfoListItemBean("性别",""));
-//        list.add(new PerInfoListItemBean("年龄",""));
-//        list.add(new PerInfoListItemBean("真实姓名",""));
-//        list.add(new PerInfoListItemBean("生日",""));
-//        list.add(new PerInfoListItemBean("星座",""));
-//        list.add(new PerInfoListItemBean("电话",""));
-//        list.add(new PerInfoListItemBean("QQ",""));
-//        list.add(new PerInfoListItemBean("邮箱",""));
-//        list.add(new PerInfoListItemBean("地址",""));
+        list.add(new PerInfoListItemBean("头像",""));
+        list.add(new PerInfoListItemBean("呢称",""));
+        list.add(new PerInfoListItemBean("性别",""));
+        list.add(new PerInfoListItemBean("年龄",""));
+        list.add(new PerInfoListItemBean("真实姓名",""));
+        list.add(new PerInfoListItemBean("生日",""));
+        list.add(new PerInfoListItemBean("星座",""));
+        list.add(new PerInfoListItemBean("电话",""));
+        list.add(new PerInfoListItemBean("QQ",""));
+        list.add(new PerInfoListItemBean("邮箱",""));
+        list.add(new PerInfoListItemBean("地址",""));
 
 
         /*****接下来要根据userName来获取Realm中的数据，周日写****/
@@ -109,24 +112,11 @@ public class PerInfoSetActivity extends Activity {
 //            e.printStackTrace();
 //        }
 
-
-        /*********************************设置返回事件*******************************************/
-        //设置返回事件
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(PerInfoSetActivity.this,OperatorActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        /**************************************************************************************/
-
-
-
         //2.创建适配器
-        PerInfoListAdapter perInfoListAdapter = new PerInfoListAdapter(this,list);
+        PerInfoListAdapter perInfoListAdapter = new PerInfoListAdapter
+                (this,list,R.layout.perinfo_list_item,
+                        new String[]{"item_option","item_setting"},
+                        new int[]{R.id.item_option,R.id.item_setting});
 
         //3.绑定适配器
         listView.setAdapter(perInfoListAdapter);
