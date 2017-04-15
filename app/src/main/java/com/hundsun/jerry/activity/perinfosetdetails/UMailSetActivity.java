@@ -1,7 +1,7 @@
 package com.hundsun.jerry.activity.perinfosetdetails;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.hundsun.jerry.R;
 import com.hundsun.jerry.activity.PerInfoSetActivity;
 
-public class UMailSetActivity extends AppCompatActivity {
+public class UMailSetActivity extends Activity {
 
     ImageView imageView=null;  //返回
     TextView textView=null;    //Done
