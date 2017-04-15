@@ -31,8 +31,8 @@ public class PerInfoListAdapter extends BaseAdapter{
     }
 
     @Override
-    public PerInfoListItemBean getItem(int position) {
-        return (PerInfoListItemBean) mList.get(position);
+    public Object getItem(int position) {
+        return position;
     }
 
     @Override
@@ -45,28 +45,30 @@ public class PerInfoListAdapter extends BaseAdapter{
         //LayoutInflater 视图构造器
         //每一个元素的视图
         widget w = null;
-        if (w == null){
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(
+                    R.layout.perinfo_list_item,
+                    null);
+            //得到控件
             w = new widget();
-            if(convertView==null) {
-                convertView = LayoutInflater.from(mContext).inflate(
-                        R.layout.perinfo_list_item,
-                        null);
-            }
-            w.tv_option= (TextView) convertView.findViewById(R.id.item_option);
-            w.tv_option= (TextView) convertView.findViewById(R.id.item_setting);
-            convertView.setTag(w);
-        }else {
+            w.tv_option = (TextView) convertView.findViewById(R.id.item_option);
+            w.tv_value = (TextView) convertView.findViewById(R.id.item_setting);
+            convertView.setTag(w);//getTag:得到对象里面的控件
+
+        } else {
             w = (widget) convertView.getTag();
         }
 
         //获得实体类
-        PerInfoListItemBean perInfoListItemBean = (PerInfoListItemBean) mList.get(position);
-
+        PerInfoListItemBean pi = (PerInfoListItemBean) mList.get(position);
         //填充数据
-        w.tv_option.setText(perInfoListItemBean.getItemOption());
-        w.tv_value.setText(perInfoListItemBean.getItemValue());
+
+        w.tv_option.setText(pi.getItemOption());
+        w.tv_value.setText(pi.getItemValue());
+
         return convertView;
     }
+
 
     //定义自定义列表中的各项
     public class widget{

@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:paddingEnd="16dp"
-    android:paddingStart="16dp">
+    android:paddingStart="16dp"
+    android:descendantFocusability="blocksDescendants">
 
     <TextView
         xmlns:android="http://schemas.android.com/apk/res/android"

@@ -3,29 +3,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/personal_info"
-            android:icon="@drawable/ic_account_circle"
-            android:title="个人信息" />
-        <item
-            android:id="@+id/my_authentication"
-            android:icon="@drawable/ic_fingerprint"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/my_suggestion"
-            android:icon="@drawable/ic_mood"
-            android:title="我的提议" />
-        <item
-            android:id="@+id/daily_mission"
+            android:id="@+id/operator_map"
             android:icon="@drawable/ic_palette"
-            android:title="每日任务" />
+            android:title="地   图" />
         <item
-            android:id="@+id/collection"
-            android:icon="@drawable/ic_whatshot"
-            android:title="收   藏" />
+            android:id="@+id/opreator_message"
+            android:icon="@drawable/ic_account_circle"
+            android:title="我的消息" />
         <item
-            android:id="@+id/attention"
-            android:icon="@drawable/ic_socialshare"
-            android:title="关   注" />
+            android:id="@+id/operator_contacts"
+            android:icon="@drawable/ic_mood"
+            android:title="联系人" />
+        <item
+            android:id="@+id/operator_setting"
+            android:icon="@drawable/ic_settings"
+            android:title="设   置" />
+        <item
+            android:id="@+id/operator_quit"
+            android:icon="@drawable/ic_remove_red_eye"
+            android:title="退   出" />
     </group>
 
 </menu>

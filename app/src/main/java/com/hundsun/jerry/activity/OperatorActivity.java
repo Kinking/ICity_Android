@@ -87,18 +87,16 @@ public class OperatorActivity extends Activity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.personal_info) {
-            // Handle the camera action
-        } else if (id == R.id.my_authentication) {
-
-        } else if (id == R.id.my_suggestion) {
-
-        } else if (id == R.id.daily_mission) {
-
-        } else if (id == R.id.collection) {
-
-        } else if (id == R.id.attention) {
-
+        if (id == R.id.operator_map) {
+            // 进入地图界面
+        } else if (id == R.id.opreator_message) {
+            // 进入地图界面
+        } else if (id == R.id.operator_contacts) {
+            // 进入地图界面
+        } else if (id == R.id.operator_setting) {
+            // 进入地图界面
+        } else if (id == R.id.operator_quit) {
+            // 进入地图界面
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
