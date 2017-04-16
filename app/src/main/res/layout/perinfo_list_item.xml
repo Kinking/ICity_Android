@@ -23,7 +23,7 @@
     <TextView
         android:id="@+id/item_setting"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="15dp"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:text="设置完的值"
