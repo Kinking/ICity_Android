@@ -38,6 +38,8 @@ public class PerInfoSetActivity extends Activity {
     UserInfoDao userInfoDao;
     List<PerInfoListItemBean> list = new ArrayList<PerInfoListItemBean>();
 
+    String[] sexArr = new String[]{"男","女"};
+
 
     private static final String BROADCAST_GET_USERNAME = "org.jerry.broadcast.action.GET_USERNAME";
 
@@ -146,11 +148,11 @@ public class PerInfoSetActivity extends Activity {
                 }else if(list.get(i).getItemOption().equals("性别")){
 
                     /**设置性别的响应事件**/
+                    /**逻辑暂时有问题**/
 
                     // 自定义对话框
                     AlertDialog.Builder builder = new AlertDialog.Builder(PerInfoSetActivity.this);
                     builder.setTitle("请选择性别");
-                    final String[] sexArr = {"男", "女"};
                     builder.setItems(sexArr, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -170,6 +172,11 @@ public class PerInfoSetActivity extends Activity {
                 }else if(list.get(i).getItemOption().equals("年龄")){
 
                     /**设置年龄的响应事件**/
+
+                    /**
+                     * 逻辑暂时有问题
+                     */
+
                     /**
                      * 思路：遍历list获得生日日期，然后来判断
                      */
@@ -199,6 +206,10 @@ public class PerInfoSetActivity extends Activity {
                 }else if(list.get(i).getItemOption().equals("生日")){
 
                     /**设置生日的响应事件**/
+
+                    /**
+                     * 逻辑暂时有问题
+                     */
 
                     DatePickerDialog mChangeBirthDialog = new DatePickerDialog(PerInfoSetActivity.this);
                     mChangeBirthDialog.setDate(1991, 01, 01);
@@ -254,6 +265,10 @@ public class PerInfoSetActivity extends Activity {
 
 
                 }else if(list.get(i).getItemOption().equals("地址")){
+
+                    /**
+                     * 逻辑暂时有问题
+                     */
 
                     //设置地址的响应事件
                     AddressPickerDialog mChangeAddressDialog = new AddressPickerDialog(PerInfoSetActivity.this);
