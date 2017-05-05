@@ -13,7 +13,7 @@ public class ConnNet {
 
 //    private static final String SERVICE_URL="http://172.20.10.7:8080/ICity/";
 
-//    private static final String SERVICE_URL="http://192.168.1.108:8080/ICity/";
+//    private static final String SERVICE_URL="http://172.30.1.31:8080/ICity/";
         private static final String SERVICE_URL="http://119.29.69.123:8080/ICity/";  //云服务器地址119.29.69.123:8080
     //将路径定义为一个常量，修改的时候也好更改
     //通过url获取网络连接  connection

@@ -2,10 +2,12 @@ package com.hundsun.jerry.activity;
 
 import android.app.Activity;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 
 import android.os.Bundle;
 
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -28,13 +30,13 @@ public class OperatorActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_operator);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
         //绑定侧滑界面头控件布局
-
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-
         View headerView = navigationView.getHeaderView(0);
-
-
         /***点击头像即开始设置个人信息***/
         circleImageView = (CircleImageView) headerView.findViewById(R.id.head_imageView);
         circleImageView.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,10 @@ public class OperatorActivity extends Activity
                 startActivity(i);
             }
         });
+
+        //侧滑栏绑定
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
 
     }
@@ -84,19 +90,26 @@ public class OperatorActivity extends Activity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+
+
         if (id == R.id.operator_map) {
             // 进入地图界面
+            Intent i = new Intent();
+            i.setClass(OperatorActivity.this,MapActivity.class);
+            startActivity(i);
+
         } else if (id == R.id.opreator_message) {
-            // 进入地图界面
+            //
         } else if (id == R.id.operator_contacts) {
-            // 进入地图界面
+            //
         } else if (id == R.id.operator_setting) {
-            // 进入地图界面
+            //
         } else if (id == R.id.operator_quit) {
-            // 进入地图界面
+            //
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
