@@ -427,7 +427,7 @@ public class RegisterActivity extends Activity {
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.add("img",img);
-        client.post("http://172.30.6.210:8080/ICity/PicController", params, new AsyncHttpResponseHandler() {
+        client.post("http://119.29.69.123:8080/ICity/PicController", params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
                 //上传成功

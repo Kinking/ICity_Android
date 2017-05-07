@@ -1,6 +1,7 @@
 package com.hundsun.jerry.activity;
 
 import android.app.Activity;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
@@ -17,6 +18,7 @@ import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
@@ -204,7 +206,7 @@ public class MapActivity extends Activity implements AMapLocationListener,Locati
         //创建异步请求
         AsyncHttpClient client = new AsyncHttpClient();
         //输入要请求的url
-//       String url = "http://172.20.10.7:8080/ICity/GetMomentInfoController";   //本机测试url
+//       String url = "http://172.30.5.252:8080/ICity/GetMomentInfoController";   //本机测试url
         String url = "http://119.29.69.123:8080/ICity/GetMomentInfoController";   //云服务器url
         //请求的参数对象
         RequestParams params = new RequestParams();
@@ -242,7 +244,10 @@ public class MapActivity extends Activity implements AMapLocationListener,Locati
                         //获取list中对象的地理位置
                         LatLng lat = new LatLng(momentList.get(j).getLatitude(),momentList.get(j).getLongitude());
                         //给MarkerOptions数组赋地理位置值和moment内容
-                        mar[j].position(lat).snippet(momentList.get(j).getMomentContent()).title(momentList.get(j).getUserNickName());
+                        mar[j].position(lat)
+                                .snippet(momentList.get(j).getMomentContent())
+                                .title(momentList.get(j).getUserNickName())
+                                .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(),R.mipmap.person_marker)));
                     }
                     for(int j = 0;j<mar.length;j++){
                         Message message = new Message();

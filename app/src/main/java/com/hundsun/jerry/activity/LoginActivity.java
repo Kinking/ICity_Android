@@ -17,6 +17,11 @@ import android.widget.Toast;
 
 import com.hundsun.jerry.R;
 import com.hundsun.jerry.service.UserOperation;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.apache.http.Header;
 
 public class LoginActivity extends Activity {
 
@@ -112,15 +117,17 @@ public class LoginActivity extends Activity {
 
                         String string=(String) msg.obj;
                         Toast.makeText(LoginActivity.this, string, Toast.LENGTH_LONG).show();
+                        if(string.equals("登录成功")){
+                            Intent intent = new Intent();
+                            intent.setClass(LoginActivity.this, OperatorActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
                         super.handleMessage(msg);
 
                         /**提交editor数据**/
                         editor.commit();
 
-                        Intent intent = new Intent();
-                        intent.setClass(LoginActivity.this, OperatorActivity.class);
-                        startActivity(intent);
-                        finish();
 
                     }catch (Exception e){
                         Toast.makeText(LoginActivity.this, "服务器异常", Toast.LENGTH_LONG).show();
