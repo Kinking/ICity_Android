@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/login_bkg"
-    tools:context="com.hundsun.jerry.activity.LoginActivity">
+    tools:context="com.jerryzhiyuan.icity.activity.LoginActivity">
 
 
 
@@ -111,7 +111,7 @@
             android:text="Forget password?"
             android:textColor="#FFFFFF"
             android:layout_width="120dp"
-            android:layout_height="22dp"
+            android:layout_height="23dp"
             android:layout_below="@+id/tv_register"
 
             android:layout_centerHorizontal="true" />

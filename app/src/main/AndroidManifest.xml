@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hundsun.jerry">
+    package="com.hundsun.jerryzhiyuan">
 
     <!-- 添加摄像头的访问权限 -->
     <uses-feature android:name="android.hardware.camera" />
@@ -73,7 +73,7 @@
 
         <!-- android:alwaysRetainTaskState="true"  不重复启动APP -->
         <activity
-            android:name=".activity.CityPosterActivity"
+            android:name="com.jerryzhiyuan.icity.activity.CityPosterActivity"
             android:alwaysRetainTaskState="true"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar.Fullscreen">
@@ -83,20 +83,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.LoginActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.RegisterActivity" />
         <activity
-            android:name=".activity.OperatorActivity"
+            android:name="com.jerryzhiyuan.icity.activity.OperatorActivity"
             android:label="@string/title_activity_operator"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.CityPoster2Activity" />
-        <activity android:name=".activity.PerInfoSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UNameSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UTelSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UTruenameSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UQQSetActivity" />
-        <activity android:name=".activity.perinfosetdetails.UMailSetActivity" />
-        <activity android:name=".activity.MapActivity"></activity>
+        <activity android:name="com.jerryzhiyuan.icity.activity.CityPoster2Activity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.PerInfoSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.perinfosetdetails.UNameSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.perinfosetdetails.UTelSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.perinfosetdetails.UTruenameSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.perinfosetdetails.UQQSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.perinfosetdetails.UMailSetActivity" />
+        <activity android:name="com.jerryzhiyuan.icity.activity.MapActivity"></activity>
     </application>
 
 </manifest>

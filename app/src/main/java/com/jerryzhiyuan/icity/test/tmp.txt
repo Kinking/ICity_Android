@@ -1,0 +1,8 @@
+   // 自定义对话框
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PerInfoSetActivity.this);
+                    builder.setSingleChoiceItems(sexArry, 0, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int which) {
+
+                        }
+                    });

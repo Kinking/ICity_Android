@@ -1,4 +1,4 @@
-package com.hundsun.jerry;
+package com.hundsun.jerryzhiyuan;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

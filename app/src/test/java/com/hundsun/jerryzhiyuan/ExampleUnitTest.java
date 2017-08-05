@@ -1,4 +1,4 @@
-package com.hundsun.jerry;
+package com.hundsun.jerryzhiyuan;
 
 import org.junit.Test;
 

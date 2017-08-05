@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="#EDEDED"
-    tools:context="com.hundsun.jerry.activity.perinfosetdetails.UTelSetActivity">
+    tools:context="com.jerryzhiyuan.icity.activity.perinfosetdetails.UTelSetActivity">
 
     <RelativeLayout
         android:id="@+id/rl_set_tel_head"
